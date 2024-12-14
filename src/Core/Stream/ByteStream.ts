@@ -64,7 +64,7 @@ export class ByteStream {
         const length = this.readInt();
 
         if (length > 0 && length < 90000) {
-            const stringBytes = this.buffer.slice(this.offset, this.offset + length);
+            const stringBytes = this.buffer.subarray(this.offset, this.offset + length);
             const string = stringBytes.toString('utf8');
             this.offset += length;
             return string;
