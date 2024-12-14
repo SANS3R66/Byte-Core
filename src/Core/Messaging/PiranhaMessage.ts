@@ -1,11 +1,10 @@
-import { dlopen } from "process";
 import { Client } from "../Client";
 import { ByteStream } from "../Stream/ByteStream";
 import { Logger } from "../Logger";
 
 export class PiranhaMessage extends ByteStream {
     private messageId: number = 20000
-    private messageVersion: number = 0 // useless ig?
+    private messageVersion: number = 0
     protected readonly loggerPiranha: Logger = new Logger("unknown PiranhaMessage") // TODO: change logger name idk
     private readonly client: Client
     private readonly messageTypeName: string
@@ -36,8 +35,8 @@ export class PiranhaMessage extends ByteStream {
         return this.client
     }
 
-    public getMessageTypeName() { // TODO?
-
+    public getMessageTypeName() {
+        return this.messageTypeName
     }
 
     public send() {

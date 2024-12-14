@@ -3,12 +3,12 @@
 
 # Install
 ## dependencies
-  node.js
+ node.js
 
-  open terminal in /src/ and
-  ```bash
-  npm i
-  ```
+ open terminal in /src/ and
+ ```bash
+ npm i
+ ```
 
 # starting
  just input in the terminal in /src/
