@@ -12,7 +12,7 @@ export class ClientHelloMessage extends PiranhaMessage {
     }
 
     public process(): this {
-        this.logger2.logWarn("Gotcha ClientHelloMessage. Looks like client has PepperCrypto.")
+        this.loggerPiranha.logWarn("Gotcha ClientHelloMessage. Looks like client has PepperCrypto.")
         return this
     }
 }

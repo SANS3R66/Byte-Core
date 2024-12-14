@@ -1,10 +1,14 @@
 import clc from 'cli-color';
 
 export class Logger {
-    private readonly logName: string;
+    private logName: string;
 
     constructor(_logName: string) {
         this.logName = _logName;
+    }
+
+    public setLogName(n: string) {
+        this.logName = n
     }
 
     public logInfo(message: string): void {

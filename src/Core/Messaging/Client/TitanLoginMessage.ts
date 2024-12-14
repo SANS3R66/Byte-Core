@@ -17,7 +17,7 @@ export class TitanLoginMessage extends PiranhaMessage {
     }
 
     public process(): this {
-        this.logger2.logPrint("highid: " + this.getClient().getHighId().toString() + ". lowid: " + this.getClient().getLowId().toString())
+        this.loggerPiranha.logPrint("highid: " + this.getClient().getHighId().toString() + ". lowid: " + this.getClient().getLowId().toString())
 
         LogicLaserMessageFactory.createMessageByType(20104, Buffer.alloc(0), this.getClient())
         return this

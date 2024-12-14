@@ -1,12 +1,12 @@
 import { dlopen } from "process";
 import { Client } from "../Client";
-import { DLogger } from "../DynamicLogger";
 import { ByteStream } from "../Stream/ByteStream";
+import { Logger } from "../Logger";
 
 export class PiranhaMessage extends ByteStream {
     private messageId: number = 20000
     private messageVersion: number = 0 // useless ig?
-    protected readonly logger2: DLogger = new DLogger("unknown PiranhaMessage") // TODO: change logger name idk
+    protected readonly loggerPiranha: Logger = new Logger("unknown PiranhaMessage") // TODO: change logger name idk
     private readonly client: Client
     private readonly messageTypeName: string
 
@@ -16,8 +16,8 @@ export class PiranhaMessage extends ByteStream {
 
         this.client = _client
         this.messageTypeName = msgtypename
-        this.logger2.setLogName(msgtypename)
-        this.logger2.logPrint("Built " + msgtypename)
+        this.loggerPiranha.setLogName(msgtypename)
+        this.loggerPiranha.logPrint("Built " + msgtypename)
     }
 
     public static isServerMessage(n: number) {
@@ -49,16 +49,16 @@ export class PiranhaMessage extends ByteStream {
 
             this.client.getSocket().write(Buffer.concat([header, this.getBuffer(), Buffer.from([0xFF, 0xFF, 0x0, 0x0, 0x0, 0x0, 0x0])]))
         } catch (e) {
-            this.logger2.logError("Couldn't send message! Error:" + e)
+            this.loggerPiranha.logError("Couldn't send message! Error:" + e)
         }
     }
 
     public decode() { // should always return self!
-        this.logger2.logError("Decode is not implemented in this PiranhaMessage!")
+        this.loggerPiranha.logError("Decode is not implemented in this PiranhaMessage!")
     }
 
     public encode() { // should always return self!
-        this.logger2.logError("Encode is not implemented in this PiranhaMessage!")
+        this.loggerPiranha.logError("Encode is not implemented in this PiranhaMessage!")
     }
 
     public process() {

@@ -10,6 +10,7 @@ export class LogicLaserMessageFactory {
 
     constructor() { }
 
+    // wrong implementation of function!!
     public static createMessageByType(type: number, bytes: Buffer, client: Client) {
         switch (type) {
             case 10100:
